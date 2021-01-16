@@ -5,6 +5,7 @@ package org.terasology.joml.geom;
 import org.joml.Matrix4fc;
 import org.joml.Vector2f;
 import org.joml.Vector3d;
+import org.joml.Vector3dc;
 import org.joml.Vector3f;
 import org.joml.Vector3fc;
 
@@ -88,6 +89,38 @@ public interface AABBfc {
      * @return dest
      */
     Vector3d center(Vector3d dest);
+
+    /**
+     * Expand this aabb by adding the given {@code extents} for each face of the region.
+     *
+     * @param dx the amount to extend this aabb by the x axis in both directions
+     * @param dy the amount to extend this aabb by the y axis in both directions
+     * @param dz the amount to extend this aabb by the z axis in both directions
+     * @param dest will hold the result
+     * @return {@code dest} (after modification)
+     * @throws IllegalArgumentException if extending this region would result in any non-positive dimension
+     */
+    AABBf expand(float dx, float dy, float dz, AABBf dest);
+
+    /**
+     * Expand this aabb by adding the given {@code extents} for each face of the region.
+     *
+     * @param extent the amount of to extend this aabb by the x, y, z axis
+     * @param dest will hold the result
+     * @return {@code dest} (after modification)
+     * @throws IllegalArgumentException if extending this region would result in any non-positive dimension
+     */
+    AABBf expand(Vector3fc extent, AABBf dest);
+
+    /**
+     * Expand this aabb by adding the given {@code extents} for each face of the region.
+     *
+     * @param extent the amount of to extend this aabb by the x, y, z axis
+     * @param dest  will hold the result
+     * @return {@code dest} (after modification)
+     * @throws IllegalArgumentException if extending this region would result in any non-positive dimension
+     */
+    AABBf expand(Vector3dc extent, AABBf dest);
 
     /**
      * Extent of the aabb (max - min) / 2.0.

@@ -89,6 +89,38 @@ public interface AABBdc {
     Vector3f center(Vector3f dest);
 
     /**
+     * Expand this aabb by adding the given {@code extents} for each face of the region.
+     *
+     * @param dx the amount to extend this aabb by the x axis in both directions
+     * @param dy the amount to extend this aabb by the y axis in both directions
+     * @param dz the amount to extend this aabb by the z axis in both directions
+     * @param dest destination; will hold the result
+     * @return {@code dest} (after modification)
+     * @throws IllegalArgumentException if extending this region would result in any non-positive dimension
+     */
+    AABBd expand(double dx, double dy, double dz, AABBd dest);
+
+    /**
+     * Expand this aabb by adding the given {@code extents} for each face of the region.
+     *
+     * @param extent the amount of to extend this aabb by the x, y, z axis
+     * @param dest destination; will hold the result
+     * @return {@code dest} (after modification)
+     * @throws IllegalArgumentException if extending this region would result in any non-positive dimension
+     */
+    AABBd expand(Vector3fc extent, AABBd dest);
+
+    /**
+     * Expand this aabb by adding the given {@code extents} for each face of the region.
+     *
+     * @param extent the amount of to extend this aabb by the x, y, z axis
+     * @param dest destination; will hold the result
+     * @return {@code dest} (after modification)
+     * @throws IllegalArgumentException if extending this region would result in any non-positive dimension
+     */
+    AABBd expand(Vector3dc extent, AABBd dest);
+
+    /**
      * Extent of the aabb (max - min) / 2.0.
      *
      * @param dest will hold the result
