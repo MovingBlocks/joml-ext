@@ -336,14 +336,7 @@ public class AABBd implements Externalizable, AABBdc {
 
     @Override
     public AABBd expand(Vector3dc extent, AABBd dest) {
-        return dest.set(
-            minX -  extent.x(),
-            minY -  extent.y(),
-            minZ -  extent.z(),
-            maxX +  extent.x(),
-            maxY +  extent.y(),
-            maxZ +  extent.z()
-        );
+        return expand(extent.x(), extent.y(), extent.z(), dest);
     }
 
     public AABBd expand(Vector3dc extent) {
