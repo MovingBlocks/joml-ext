@@ -2,39 +2,49 @@ package org.terasology.joml.test;
 
 import org.joml.Quaterniondc;
 import org.joml.Quaternionfc;
-import org.junit.platform.commons.util.StringUtils;
-import org.opentest4j.AssertionFailedError;
+
+import java.util.function.Supplier;
+
+import static org.terasology.joml.test.AssertionUtils.failNotEqual;
+import static org.terasology.joml.test.AssertionUtils.isValid;
 
 public class QuaternionAssert {
+    private QuaternionAssert() {
+    }
+
     public static void assertEquals(Quaternionfc expected, Quaternionfc actual, float epsilon) {
-        if (expected == null) {
-            if (actual == null) {
-                return;
-            }
+        if (isValid(expected, actual) && !expected.equals(actual, epsilon)) {
             failNotEqual(expected, actual);
-            return;
         }
-        if (!expected.equals(actual, epsilon)) {
-            failNotEqual(expected, actual);
+    }
+
+    public static void assertEquals(Quaternionfc expected, Quaternionfc actual, float epsilon, String message) {
+        if (isValid(expected, actual, message) && !expected.equals(actual, epsilon)) {
+            failNotEqual(expected, actual, message);
+        }
+    }
+
+    public static void assertEquals(Quaternionfc expected, Quaternionfc actual, float epsilon, Supplier<String> message) {
+        if (isValid(expected, actual, message) && !expected.equals(actual, epsilon)) {
+            failNotEqual(expected, actual, message);
         }
     }
 
     public static void assertEquals(Quaterniondc expected, Quaterniondc actual, float epsilon) {
-        if (expected == null) {
-            if (actual == null) {
-                return;
-            }
-            failNotEqual(expected, actual);
-            return;
-        }
-        if (!expected.equals(actual, epsilon)) {
+        if (isValid(expected, actual) && !expected.equals(actual, epsilon)) {
             failNotEqual(expected, actual);
         }
     }
 
-    private static void failNotEqual(Object expected, Object actual) {
-        String expectedString = StringUtils.nullSafeToString(expected);
-        String actualString = StringUtils.nullSafeToString(actual);
-        throw new AssertionFailedError(String.format("expected: %s but was: %s", expectedString, actualString), expected, actual);
+    public static void assertEquals(Quaterniondc expected, Quaterniondc actual, float epsilon, String message) {
+        if (isValid(expected, actual, message) && !expected.equals(actual, epsilon)) {
+            failNotEqual(expected, actual, message);
+        }
+    }
+
+    public static void assertEquals(Quaterniondc expected, Quaterniondc actual, float epsilon, Supplier<String> message) {
+        if (isValid(expected, actual, message) && !expected.equals(actual, epsilon)) {
+            failNotEqual(expected, actual, message);
+        }
     }
 }
