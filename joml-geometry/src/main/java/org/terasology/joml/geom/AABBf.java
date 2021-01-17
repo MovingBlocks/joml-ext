@@ -292,7 +292,7 @@ public class AABBf implements Externalizable, AABBfc {
             maxX + dx,
             maxY + dy,
             maxZ + dz
-        );
+        ).validate();
     }
 
     /**
@@ -309,14 +309,7 @@ public class AABBf implements Externalizable, AABBfc {
 
     @Override
     public AABBf expand(Vector3fc extent, AABBf dest) {
-        return dest.set(
-            minX - extent.x(),
-            minY - extent.y(),
-            minZ - extent.z(),
-            maxX + extent.x(),
-            maxY + extent.y(),
-            maxZ + extent.z()
-        );
+        return expand(extent.x(), extent.y(), extent.z(), dest);
     }
 
     /**
@@ -331,14 +324,7 @@ public class AABBf implements Externalizable, AABBfc {
 
     @Override
     public AABBf expand(Vector3dc extent, AABBf dest) {
-        return dest.set(
-            (float)(minX - extent.x()),
-            (float)(minY - extent.y()),
-            (float)(minZ - extent.z()),
-            (float)(maxX + extent.x()),
-            (float)(maxY + extent.y()),
-            (float)(maxZ + extent.z())
-        );
+        return expand((float) extent.x(), (float) extent.y(), (float) extent.z(), dest);
     }
 
     /**

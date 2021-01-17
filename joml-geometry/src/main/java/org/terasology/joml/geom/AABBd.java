@@ -310,7 +310,7 @@ public class AABBd implements Externalizable, AABBdc {
             maxX + dx,
             maxY + dy,
             maxZ + dz
-        );
+        ).validate();
     }
 
     /**
