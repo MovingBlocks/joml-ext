@@ -292,17 +292,9 @@ public class AABBf implements Externalizable, AABBfc {
             maxX + dx,
             maxY + dy,
             maxZ + dz
-        ).validate();
+        );
     }
 
-    /**
-     * expand the aabb by dx, dy and dz
-     *
-     * @param dx the x component
-     * @param dy the y component
-     * @param dz the z component
-     * @return
-     */
     public AABBf expand(float dx, float dy, float dz) {
         return expand(dx, dy, dz, this);
     }
