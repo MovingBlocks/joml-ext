@@ -162,11 +162,6 @@ public class AABBf implements Externalizable, AABBfc {
         return setSize(dx, dy, dz, this);
     }
 
-    @Override
-    public AABBf setSize(Vector3dc size, AABBf dest) {
-        return setSize((float) size.x(),(float) size.y(),(float) size.z(), dest);
-    }
-
     /**
      Set the size of the block region from the minimum corner.
      *
@@ -187,6 +182,10 @@ public class AABBf implements Externalizable, AABBfc {
         return setSize(size, this);
     }
 
+    @Override
+    public AABBf setSize(Vector3dc size, AABBf dest) {
+        return setSize((float) size.x(),(float) size.y(),(float) size.z(), dest);
+    }
 
     @Override
     public AABBf setSize(Vector3fc size, AABBf dest) {
