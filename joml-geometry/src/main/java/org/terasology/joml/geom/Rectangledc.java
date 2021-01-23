@@ -5,6 +5,8 @@ package org.terasology.joml.geom;
 import org.joml.Vector2d;
 import org.joml.Vector2dc;
 import org.joml.Vector2fc;
+import org.joml.Vector3dc;
+import org.joml.Vector3fc;
 
 public interface Rectangledc {
 
@@ -38,6 +40,37 @@ public interface Rectangledc {
      * @return dest
      */
     Vector2d getSize(Vector2d dest);
+
+    /**
+     *
+     * Set the size of the rectangle minimum corner.
+     *
+     * @param dx the size along the x component
+     * @param dy the size along the y component
+     * @param dest will hold the result
+     * @return dest
+     */
+    Rectangled setSize(double dx, double dy, Rectangled dest);
+
+    /**
+     *
+     * Set the size of the rectangle from the minimum corner.
+     *
+     * @param size the size along x/y/z
+     * @param dest will hold the result
+     * @return dest
+     */
+    Rectangled setSize(Vector2fc size, Rectangled dest);
+
+    /**
+     *
+     * Set the size of the rectangle from the minimum corner.
+     *
+     * @param size the size along x/y/z
+     * @param dest will hold the result
+     * @return dest
+     */
+    Rectangled setSize(Vector2dc size, Rectangled dest);
 
     /**
      * Compute the union of <code>this</code> and the given point <code>(x, y, z)</code> and store the result in <code>dest</code>.
