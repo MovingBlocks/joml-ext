@@ -45,16 +45,16 @@ public class Rectangled implements Externalizable, Rectangledc {
     }
 
     /**
-     * Create a new {@link Rectangled} as a copy of the given <code>source</code>.
+     * Create a new {@link Rectangledc} as a copy of the given <code>source</code>.
      *
      * @param source
-     *          the {@link Rectangled} to copy from
+     *          the {@link Rectangledc} to copy from
      */
-    public Rectangled(Rectangled source) {
-        this.minX = source.minX;
-        this.minY = source.minY;
-        this.maxX = source.maxX;
-        this.maxY = source.maxY;
+    public Rectangled(Rectangledc source) {
+        this.minX = source.minX();
+        this.minY = source.minY();
+        this.maxX = source.maxX();
+        this.maxY = source.maxY();
     }
 
     /**
@@ -159,14 +159,14 @@ public class Rectangled implements Externalizable, Rectangledc {
      * Set this {@link Rectangled} to be a clone of <code>source</code>.
      *
      * @param source
-     *            the {@link Rectangled} to copy from
+     *            the {@link Rectangledc} to copy from
      * @return this
      */
-    public Rectangled set(Rectangled source){
-        this.minX = source.minX;
-        this.minY = source.minY;
-        this.maxX = source.maxX;
-        this.maxY = source.maxY;
+    public Rectangled set(Rectangledc source){
+        this.minX = source.minX();
+        this.minY = source.minY();
+        this.maxX = source.maxX();
+        this.maxY = source.maxY();
         return this;
     }
 

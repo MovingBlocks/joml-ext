@@ -46,16 +46,16 @@ public class Rectanglef implements Externalizable, Rectanglefc {
     }
 
     /**
-     * Create a new {@link Rectanglef} as a copy of the given <code>source</code>.
+     * Create a new {@link Rectanglefc} as a copy of the given <code>source</code>.
      *
      * @param source
-     *          the {@link Rectanglef} to copy from
+     *          the {@link Rectanglefc} to copy from
      */
-    public Rectanglef(Rectanglef source) {
-        this.minX = source.minX;
-        this.minY = source.minY;
-        this.maxX = source.maxX;
-        this.maxY = source.maxY;
+    public Rectanglef(Rectanglefc source) {
+        this.minX = source.minX();
+        this.minY = source.minY();
+        this.maxX = source.maxX();
+        this.maxY = source.maxY();
     }
 
     /**
@@ -123,23 +123,23 @@ public class Rectanglef implements Externalizable, Rectanglefc {
             rectangle.minY() >= minY() && rectangle.maxY() <= maxY();
     }
 
-    public boolean containsRectangle(Rectanglei rectangle) {
-        return rectangle.minX >= minX() && rectangle.maxX <= maxX() &&
-            rectangle.minY >= minY() && rectangle.maxY <= maxY();
+    public boolean containsRectangle(Rectangleic rectangle) {
+        return rectangle.minX() >= minX() && rectangle.maxX() <= maxX() &&
+            rectangle.minY() >= minY() && rectangle.maxY() <= maxY();
     }
 
     /**
-     * Set this {@link Rectanglei} to be a clone of <code>source</code>.
+     * Set this {@link Rectanglefc} to be a clone of <code>source</code>.
      *
      * @param source
-     *            the {@link Rectanglei} to copy from
+     *            the {@link Rectanglefc} to copy from
      * @return this
      */
-    public Rectanglef set(Rectanglef source){
-        this.minX = source.minX;
-        this.minY = source.minY;
-        this.maxX = source.maxX;
-        this.maxY = source.maxY;
+    public Rectanglef set(Rectanglefc source){
+        this.minX = source.minX();
+        this.minY = source.minY();
+        this.maxX = source.maxX();
+        this.maxY = source.maxY();
         return this;
     }
 

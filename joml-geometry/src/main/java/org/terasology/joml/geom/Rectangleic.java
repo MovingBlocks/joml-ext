@@ -72,7 +72,7 @@ public interface Rectangleic {
      * @param dest  will hold the result
      * @return dest
      */
-    Rectanglei union(Rectanglei other, Rectanglei dest);
+    Rectanglei union(Rectangleic other, Rectanglei dest);
 
 
     /**
@@ -81,7 +81,7 @@ public interface Rectangleic {
      * @param other the other rectangle
      * @return <code>true</code> iff both rectangles intersect; <code>false</code> otherwise
      */
-    boolean intersectsRectangle(Rectangled other);
+    boolean intersectsRectangle(Rectangledc other);
 
     /**
      * Check if this and the given rectangle intersect.
@@ -89,7 +89,7 @@ public interface Rectangleic {
      * @param other the other rectangle
      * @return <code>true</code> iff both rectangles intersect; <code>false</code> otherwise
      */
-    boolean intersectsRectangle(Rectanglef other);
+    boolean intersectsRectangle(Rectanglefc other);
 
     /**
      * Check if this and the given rectangle intersect.
@@ -97,7 +97,7 @@ public interface Rectangleic {
      * @param other the other rectangle
      * @return <code>true</code> iff both rectangles intersect; <code>false</code> otherwise
      */
-    boolean intersectsRectangle(Rectanglei other);
+    boolean intersectsRectangle(Rectangleic other);
 
     /**
      * Check whether <code>this</code> rectangle represents a valid rectangle.
