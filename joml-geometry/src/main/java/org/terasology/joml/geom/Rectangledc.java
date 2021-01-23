@@ -5,8 +5,6 @@ package org.terasology.joml.geom;
 import org.joml.Vector2d;
 import org.joml.Vector2dc;
 import org.joml.Vector2fc;
-import org.joml.Vector3dc;
-import org.joml.Vector3fc;
 
 public interface Rectangledc {
 
