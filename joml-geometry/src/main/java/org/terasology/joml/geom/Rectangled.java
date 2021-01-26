@@ -193,7 +193,7 @@ public class Rectangled implements Externalizable, Rectangledc {
     }
 
     /**
-     * Set this rectangle to be a clone of <code>source</code>.
+     * Set this rectangle to the given point <code>(x, y)</code> with zero size.
      *
      * @param x the x coordinate of both minimum and maximum corner
      * @param y the y coordinate of both minimum and maximum corner
@@ -208,7 +208,7 @@ public class Rectangled implements Externalizable, Rectangledc {
     }
 
     /**
-     * Set this rectangle to be a clone of <code>source</code>.
+     * Set this rectangle to the given <code>point</code> with zero size.
      *
      * @param point the coordinate of both minimum and maximum corner
      * @return this
