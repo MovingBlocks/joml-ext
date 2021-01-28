@@ -91,6 +91,28 @@ public class Rectangled implements Externalizable, Rectangledc {
         this.maxY = maxY;
     }
 
+    /**
+     * Create a new {@link Rectangled} of size zero at the given point.
+     *
+     * @param x the x coordinate of both minimum and maximum corner
+     * @param y the y coordinate of both minimum and maximum corner
+     */
+    public Rectangled(double x, double y) {
+        this.minX = x;
+        this.minY = y;
+        this.maxX = x;
+        this.maxY = y;
+    }
+
+    /**
+     * Create a new {@link Rectangled} of size zero at the given point.
+     *
+     * @param point the coordinate of both minimum and maximum corner
+     */
+    public Rectangled(Vector2dc point) {
+        this(point.x(), point.y());
+    }
+
     @Override
     public double minX() {
         return this.minX;
@@ -126,6 +148,34 @@ public class Rectangled implements Externalizable, Rectangledc {
         return dest.set(this.maxX - this.minX, this.maxY - this.minY);
     }
 
+    @Override
+    public Rectangled setSize(double dx, double dy, Rectangled dest) {
+        dest.maxX = dest.minX + dx;
+        dest.maxY = dest.minY + dy;
+        return dest;
+    }
+
+    public Rectangled setSize(double dx, double dy) {
+        return setSize(dx,dy, this);
+    }
+
+    @Override
+    public Rectangled setSize(Vector2fc size, Rectangled dest) {
+        return setSize(size.x(), size.y(), dest);
+    }
+
+    public Rectangled setSize(Vector2fc size) {
+        return setSize(size, this);
+    }
+
+    @Override
+    public Rectangled setSize(Vector2dc size, Rectangled dest) {
+        return setSize(size.x(), size.y(), dest);
+    }
+
+    public Rectangled setSize(Vector2dc size) {
+        return setSize(size.x(), size.y(), this);
+    }
 
     /**
      * Set this {@link Rectangled} to be a clone of <code>source</code>.
@@ -140,6 +190,31 @@ public class Rectangled implements Externalizable, Rectangledc {
         this.maxX = source.maxX;
         this.maxY = source.maxY;
         return this;
+    }
+
+    /**
+     * Set this rectangle to the given point <code>(x, y)</code> with zero size.
+     *
+     * @param x the x coordinate of both minimum and maximum corner
+     * @param y the y coordinate of both minimum and maximum corner
+     * @return this
+     */
+    public Rectangled set(double x, double y) {
+        this.minX = x;
+        this.minY = y;
+        this.maxX = x;
+        this.maxY = y;
+        return this;
+    }
+
+    /**
+     * Set this rectangle to the given <code>point</code> with zero size.
+     *
+     * @param point the coordinate of both minimum and maximum corner
+     * @return this
+     */
+    public Rectangled set(Vector2fc point) {
+        return set(point.x(), point.y());
     }
 
     /**
