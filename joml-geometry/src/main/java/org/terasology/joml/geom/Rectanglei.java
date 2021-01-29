@@ -5,7 +5,6 @@ package org.terasology.joml.geom;
 import org.joml.Math;
 import org.joml.Options;
 import org.joml.Runtime;
-import org.joml.Vector2dc;
 import org.joml.Vector2fc;
 import org.joml.Vector2i;
 import org.joml.Vector2ic;
