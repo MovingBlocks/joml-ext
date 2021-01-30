@@ -67,4 +67,11 @@ public class RectanglefTest {
         Rectanglef rect = new Rectanglef(1, 1, 2, 3);
         assertEquals(new Rectanglef(rect).setSize(5, 5), rect.setSize(5,5, new Rectanglef()));
     }
+
+    @Test
+    public void testRectangleFromPoint() {
+        Rectanglef rect = new Rectanglef(1,1);
+        assertFalse(rect.isValid());
+        assertFalse(rect.containsPoint(1,1));
+    }
 }

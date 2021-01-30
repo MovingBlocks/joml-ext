@@ -67,4 +67,11 @@ public class RectangledTest {
         assertEquals(expected, rect.setSize(5,5, new Rectangled()));
         assertEquals(expected, new Rectangled(rect).setSize(5, 5));
     }
+
+    @Test
+    public void testRectangleFromPoint() {
+        Rectangled rect = new Rectangled(1,1);
+        assertFalse(rect.isValid());
+        assertFalse(rect.containsPoint(1,1));
+    }
 }
