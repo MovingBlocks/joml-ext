@@ -8,6 +8,7 @@ import org.joml.Runtime;
 import org.joml.Vector2d;
 import org.joml.Vector2dc;
 import org.joml.Vector2fc;
+import org.joml.Vector2ic;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -410,8 +411,6 @@ public class Rectangled implements Externalizable, Rectangledc {
                rectangle.minY() >= minY && rectangle.maxY() <= maxY;
     }
 
-
-
     /**
      * Check if this rectangle contains the given <code>rectangle</code>.
      *
@@ -540,6 +539,26 @@ public class Rectangled implements Externalizable, Rectangledc {
 
     @Override
     public boolean containsPoint(double x, double y) {
+        return x > minX && y > minY && x < maxX && y < maxY;
+    }
+
+    @Override
+    public boolean containsPoint(Vector2ic point) {
+        return containsPoint(point.x(), point.y());
+    }
+
+    @Override
+    public boolean containsPoint(int x, int y) {
+        return x > minX && y > minY && x < maxX && y < maxY;
+    }
+
+    @Override
+    public boolean containsPoint(Vector2fc point) {
+        return containsPoint(point.x(), point.y());
+    }
+
+    @Override
+    public boolean containsPoint(float x, float y) {
         return x > minX && y > minY && x < maxX && y < maxY;
     }
 
