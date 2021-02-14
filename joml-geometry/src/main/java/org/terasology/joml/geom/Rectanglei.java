@@ -131,6 +131,17 @@ public class Rectanglei implements Externalizable, Rectangleic {
     /**
      * Set the minimum and maximum corner of this rectangle to given values.
      *
+     * @param min the minimum corner
+     * @param min the maximum corner
+     * @return this
+     */
+    public Rectanglei set(Vector2ic min, Vector2ic max) {
+        return set(min.x(), min.y(), max.x(), max.y());
+    }
+
+    /**
+     * Set the minimum and maximum corner of this rectangle to given values.
+     *
      * @param minX the minimum x coordinate
      * @param minY the minimum y coordinate
      * @param maxX the maximum x coordinate
