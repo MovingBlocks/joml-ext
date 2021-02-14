@@ -294,13 +294,9 @@ public class Rectangled implements Externalizable, Rectangledc {
         return maxY - minY;
     }
 
-    /**
-     * Return the area of the rectangle
-     *
-     * @return area
-     */
+    @Override
     public double area() {
-        return lengthX() * lengthY();
+        return getSizeX() * getSizeY();
     }
 
     private Rectangled validate() {

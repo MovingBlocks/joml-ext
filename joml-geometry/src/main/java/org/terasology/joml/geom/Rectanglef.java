@@ -302,13 +302,9 @@ public class Rectanglef implements Externalizable, Rectanglefc {
         return maxY - minY;
     }
 
-    /**
-     * Return the area of the rectangle
-     *
-     * @return area
-     */
+    @Override
     public float area() {
-        return lengthX() * lengthY();
+        return getSizeX() * getSizeY();
     }
 
     /**
