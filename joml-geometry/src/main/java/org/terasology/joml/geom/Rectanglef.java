@@ -468,6 +468,24 @@ public class Rectanglef implements Externalizable, Rectanglefc {
         return x > minX && y > minY && x < maxX && y < maxY;
     }
 
+    @Override
+    public boolean containsPoint(Vector2ic point) {
+        return containsPoint(point.x(), point.y());    }
+
+    @Override
+    public boolean containsPoint(int x, int y) {
+        return x > minX && y > minY && x < maxX && y < maxY;
+    }
+
+    @Override
+    public boolean containsPoint(Vector2dc point) {
+        return containsPoint(point.x(), point.y());    }
+
+    @Override
+    public boolean containsPoint(double x, double y) {
+        return x > minX && y > minY && x < maxX && y < maxY;
+    }
+
     /**
      * Translate <code>this</code> by the given vector <code>xy</code>.
      *
