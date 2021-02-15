@@ -47,8 +47,7 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Create a new {@link Rectangledc} as a copy of the given <code>source</code>.
      *
-     * @param source
-     *          the {@link Rectangledc} to copy from
+     * @param source the {@link Rectangledc} to copy from
      */
     public Rectangled(Rectangledc source) {
         this.minX = source.minX();
@@ -60,10 +59,8 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Create a new {@link Rectangled} with the given <code>min</code> and <code>max</code> corner coordinates.
      *
-     * @param min
-     *          the minimum coordinates
-     * @param max
-     *          the maximum coordinates
+     * @param min the minimum coordinates
+     * @param max the maximum coordinates
      */
     public Rectangled(Vector2dc min, Vector2dc max) {
         this.minX = min.x();
@@ -75,14 +72,10 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Create a new {@link Rectangled} with the given minimum and maximum corner coordinates.
      *
-     * @param minX
-     *          the x coordinate of the minimum corner
-     * @param minY
-     *          the y coordinate of the minimum corner
-     * @param maxX
-     *          the x coordinate of the maximum corner
-     * @param maxY
-     *          the y coordinate of the maximum corner
+     * @param minX the x coordinate of the minimum corner
+     * @param minY the y coordinate of the minimum corner
+     * @param maxX the x coordinate of the maximum corner
+     * @param maxY the y coordinate of the maximum corner
      */
     public Rectangled(double minX, double minY, double maxX, double maxY) {
         this.minX = minX;
@@ -123,6 +116,10 @@ public class Rectangled implements Externalizable, Rectangledc {
         return this.minY;
     }
 
+    public Vector2d getMin(Vector2d dest) {
+        return dest.set(minX, minY);
+    }
+
     @Override
     public double maxX() {
         return this.maxX;
@@ -131,6 +128,10 @@ public class Rectangled implements Externalizable, Rectangledc {
     @Override
     public double maxY() {
         return this.maxY;
+    }
+
+    public Vector2d getMax(Vector2d dest) {
+        return dest.set(maxX, maxY);
     }
 
     @Override
@@ -158,7 +159,7 @@ public class Rectangled implements Externalizable, Rectangledc {
     }
 
     public Rectangled setSize(double dx, double dy) {
-        return setSize(dx,dy, this);
+        return setSize(dx, dy, this);
     }
 
     @Override
@@ -182,11 +183,10 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Set this {@link Rectangled} to be a clone of <code>source</code>.
      *
-     * @param source
-     *            the {@link Rectangledc} to copy from
+     * @param source the {@link Rectangledc} to copy from
      * @return this
      */
-    public Rectangled set(Rectangledc source){
+    public Rectangled set(Rectangledc source) {
         this.minX = source.minX();
         this.minY = source.minY();
         this.maxX = source.maxX();
@@ -222,10 +222,8 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Set the minimum corner coordinates.
      *
-     * @param minX
-     *          the x coordinate of the minimum corner
-     * @param minY
-     *          the y coordinate of the minimum corner
+     * @param minX the x coordinate of the minimum corner
+     * @param minY the y coordinate of the minimum corner
      * @return this
      */
     public Rectangled setMin(double minX, double minY) {
@@ -237,8 +235,7 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Set the minimum corner coordinates.
      *
-     * @param min
-     *          the minimum coordinates
+     * @param min the minimum coordinates
      * @return this
      */
     public Rectangled setMin(Vector2dc min) {
@@ -251,10 +248,8 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Set the maximum corner coordinates.
      *
-     * @param maxX
-     *              the x coordinate of the maximum corner
-     * @param maxY
-     *              the y coordinate of the maximum corner
+     * @param maxX the x coordinate of the maximum corner
+     * @param maxY the y coordinate of the maximum corner
      * @return this
      */
     public Rectangled setMax(double maxX, double maxY) {
@@ -266,8 +261,7 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Set the maximum corner coordinates.
      *
-     * @param max
-     *          the maximum coordinates
+     * @param max the maximum coordinates
      * @return this
      */
     public Rectangled setMax(Vector2dc max) {
@@ -334,11 +328,10 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Compute the rectangle of intersection between <code>this</code> and the given rectangle.
      * <p>
-     * If the two rectangles do not intersect, then {@link Double#NaN} is stored in each component
-     * of <code>dest</code>.
+     * If the two rectangles do not intersect, then {@link Double#NaN} is stored in each component of
+     * <code>dest</code>.
      *
-     * @param other
-     *          the other rectangle
+     * @param other the other rectangle
      * @return this
      */
     public Rectangled intersection(Rectangledc other) {
@@ -355,16 +348,14 @@ public class Rectangled implements Externalizable, Rectangledc {
     }
 
     /**
-     * Compute the rectangle of intersection between <code>this</code> and the given rectangle and
-     * store the result in <code>dest</code>.
+     * Compute the rectangle of intersection between <code>this</code> and the given rectangle and store the result in
+     * <code>dest</code>.
      * <p>
-     * If the two rectangles do not intersect, then {@link Double#NaN} is stored in each component
-     * of <code>dest</code>.
+     * If the two rectangles do not intersect, then {@link Double#NaN} is stored in each component of
+     * <code>dest</code>.
      *
-     * @param other
-     *          the other rectangle
-     * @param dest
-     *          will hold the result
+     * @param other the other rectangle
+     * @param dest will hold the result
      * @return dest
      */
     @Override
@@ -379,8 +370,7 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Return the length of this rectangle in the X and Y dimensions and store the result in <code>dest</code>.
      *
-     * @param dest
-     *          will hold the result
+     * @param dest will hold the result
      * @return dest
      * @deprecated Use {@link #getSize(Vector2d)}
      */
@@ -391,51 +381,45 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Check if this rectangle contains the given <code>rectangle</code>.
      *
-     * @param rectangle
-     *          the rectangle to test
+     * @param rectangle the rectangle to test
      * @return <code>true</code> iff this rectangle contains the rectangle; <code>false</code> otherwise
      */
     @Override
     public boolean containsRectangle(Rectangledc rectangle) {
         return rectangle.minX() >= minX && rectangle.maxX() <= maxX &&
-               rectangle.minY() >= minY && rectangle.maxY() <= maxY;
+                rectangle.minY() >= minY && rectangle.maxY() <= maxY;
     }
 
     /**
      * Check if this rectangle contains the given <code>rectangle</code>.
      *
-     * @param rectangle
-     *          the rectangle to test
+     * @param rectangle the rectangle to test
      * @return <code>true</code> iff this rectangle contains the rectangle; <code>false</code> otherwise
      */
     @Override
     public boolean containsRectangle(Rectanglefc rectangle) {
         return rectangle.minX() >= minX && rectangle.maxX() <= maxX &&
-               rectangle.minY() >= minY && rectangle.maxY() <= maxY;
+                rectangle.minY() >= minY && rectangle.maxY() <= maxY;
     }
-
 
 
     /**
      * Check if this rectangle contains the given <code>rectangle</code>.
      *
-     * @param rectangle
-     *          the rectangle to test
+     * @param rectangle the rectangle to test
      * @return <code>true</code> iff this rectangle contains the rectangle; <code>false</code> otherwise
      */
     @Override
     public boolean containsRectangle(Rectangleic rectangle) {
         return rectangle.minX() >= minX && rectangle.maxX() <= maxX &&
-               rectangle.minY() >= minY && rectangle.maxY() <= maxY;
+                rectangle.minY() >= minY && rectangle.maxY() <= maxY;
     }
 
     /**
      * Set <code>this</code> to the union of <code>this</code> and the given point <code>p</code>.
      *
-     * @param x
-     *          the x coordinate of the point
-     * @param y
-     *          the y coordinate of the point
+     * @param x the x coordinate of the point
+     * @param y the y coordinate of the point
      * @return this
      */
     public Rectangled union(double x, double y) {
@@ -445,8 +429,7 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Set <code>this</code> to the union of <code>this</code> and the given point <code>p</code>.
      *
-     * @param p
-     *          the point
+     * @param p the point
      * @return this
      */
     public Rectangled union(Vector2dc p) {
@@ -472,8 +455,7 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Set <code>this</code> to the union of <code>this</code> and <code>other</code>.
      *
-     * @param other
-     *          the other {@link Rectanglef}
+     * @param other the other {@link Rectanglef}
      * @return this
      */
     public Rectangled union(Rectangledc other) {
@@ -483,10 +465,8 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Compute the union of <code>this</code> and <code>other</code> and store the result in <code>dest</code>.
      *
-     * @param other
-     *          the other {@link Rectangled}
-     * @param dest
-     *          will hold the result
+     * @param other the other {@link Rectangled}
+     * @param dest will hold the result
      * @return dest
      */
     @Override
@@ -501,40 +481,37 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Check if this and the given rectangle intersect.
      *
-     * @param other
-     *          the other rectangle
+     * @param other the other rectangle
      * @return <code>true</code> iff both rectangles intersect; <code>false</code> otherwise
      */
     @Override
     public boolean intersectsRectangle(Rectangledc other) {
         return minX < other.maxX() && maxX > other.minX() &&
-               maxY > other.minY() && minY < other.maxY();
+                maxY > other.minY() && minY < other.maxY();
     }
 
     /**
      * Check if this and the given rectangle intersect.
      *
-     * @param other
-     *          the other rectangle
+     * @param other the other rectangle
      * @return <code>true</code> iff both rectangles intersect; <code>false</code> otherwise
      */
     @Override
     public boolean intersectsRectangle(Rectanglefc other) {
         return minX < other.maxX() && maxX > other.minX() &&
-               maxY > other.minY() && minY < other.maxY();
+                maxY > other.minY() && minY < other.maxY();
     }
 
     /**
      * Check if this and the given rectangle intersect.
      *
-     * @param other
-     *          the other rectangle
+     * @param other the other rectangle
      * @return <code>true</code> iff both rectangles intersect; <code>false</code> otherwise
      */
     @Override
     public boolean intersectsRectangle(Rectanglei other) {
         return minX < other.maxX && maxX > other.minX &&
-               maxY > other.minY && minY < other.maxY;
+                maxY > other.minY && minY < other.maxY;
     }
 
     @Override
@@ -550,8 +527,7 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Translate <code>this</code> by the given vector <code>xy</code>.
      *
-     * @param xy
-     *          the vector to translate by
+     * @param xy the vector to translate by
      * @return this
      */
     public Rectangled translate(Vector2dc xy) {
@@ -561,10 +537,8 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Translate <code>this</code> by the given vector <code>xy</code> and store the result in <code>dest</code>.
      *
-     * @param xy
-     *          the vector to translate by
-     * @param dest
-     *          will hold the result
+     * @param xy the vector to translate by
+     * @param dest will hold the result
      * @return dest
      */
     @Override
@@ -575,8 +549,7 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Translate <code>this</code> by the given vector <code>xy</code>.
      *
-     * @param xy
-     *          the vector to translate by
+     * @param xy the vector to translate by
      * @return this
      */
     public Rectangled translate(Vector2fc xy) {
@@ -591,10 +564,8 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Translate <code>this</code> by the vector <code>(x, y)</code>.
      *
-     * @param x
-     *          the x coordinate to translate by
-     * @param y
-     *          the y coordinate to translate by
+     * @param x the x coordinate to translate by
+     * @param y the y coordinate to translate by
      * @return this
      */
     public Rectangled translate(double x, double y) {
@@ -613,8 +584,7 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Scale <code>this</code> about the origin.
      *
-     * @param sf
-     *          the scaling factor in the x and y axis.
+     * @param sf the scaling factor in the x and y axis.
      * @return this
      */
     public Rectangled scale(double sf) {
@@ -631,12 +601,9 @@ public class Rectangled implements Externalizable, Rectangledc {
      * <p>
      * This is equivalent to <code>translate(-ax, -ay).scale(sf).translate(ax, ay)</code>
      *
-     * @param sf
-     *          the scaling factor in the x and y axis
-     * @param ax
-     *          the x coordinate of the anchor
-     * @param ay
-     *          the y coordinate of the anchor
+     * @param sf the scaling factor in the x and y axis
+     * @param ax the x coordinate of the anchor
+     * @param ay the y coordinate of the anchor
      * @return this
      */
     public Rectangled scale(double sf, double ax, double ay) {
@@ -653,10 +620,8 @@ public class Rectangled implements Externalizable, Rectangledc {
      * <p>
      * This is equivalent to <code>translate(anchor.negate()).scale(sf).translate(anchor.negate())</code>
      *
-     * @param sf
-     *          the scaling factor in the x and y axis
-     * @param anchor
-     *          the location of the anchor
+     * @param sf the scaling factor in the x and y axis
+     * @param anchor the location of the anchor
      * @return this
      */
     public Rectangled scale(double sf, Vector2dc anchor) {
@@ -671,10 +636,8 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Scale <code>this</code> about the origin.
      *
-     * @param sx
-     *          the scaling factor on the x axis
-     * @param sy
-     *          the scaling factor on the y axis
+     * @param sx the scaling factor on the x axis
+     * @param sy the scaling factor on the y axis
      * @return this
      */
     public Rectangled scale(double sx, double sy) {
@@ -684,12 +647,9 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Scale <code>this</code> about the origin and store the result in <code>dest</code>.
      *
-     * @param sx
-     *          the scaling factor on the x axis
-     * @param sy
-     *          the scaling factor on the y axis
-     * @param dest
-     *          will hold the result
+     * @param sx the scaling factor on the x axis
+     * @param sy the scaling factor on the y axis
+     * @param dest will hold the result
      * @return dest
      */
     @Override
@@ -702,14 +662,10 @@ public class Rectangled implements Externalizable, Rectangledc {
      * <p>
      * This is equivalent to <code>translate(-ax, -ay).scale(sx, sy).translate(ax, ay)</code>
      *
-     * @param sx
-     *          the scaling factor on the x axis
-     * @param sy
-     *          the scaling factor on the y axis
-     * @param ax
-     *          the x coordinate of the anchor
-     * @param ay
-     *          the y coordinate of the anchor
+     * @param sx the scaling factor on the x axis
+     * @param sy the scaling factor on the y axis
+     * @param ax the x coordinate of the anchor
+     * @param ay the y coordinate of the anchor
      * @return this
      */
     public Rectangled scale(double sx, double sy, double ax, double ay) {
@@ -725,12 +681,9 @@ public class Rectangled implements Externalizable, Rectangledc {
      * <p>
      * This is equivalent to <code>translate(anchor.negate()).scale(sx, sy).translate(anchor.negate())</code>
      *
-     * @param sx
-     *          the scaling factor on the x axis
-     * @param sy
-     *          the scaling factor on the y axis
-     * @param anchor
-     *          the location of the anchor
+     * @param sx the scaling factor on the x axis
+     * @param sy the scaling factor on the y axis
+     * @param anchor the location of the anchor
      * @return this
      */
     public Rectangled scale(double sx, double sy, Vector2dc anchor) {
@@ -742,16 +695,11 @@ public class Rectangled implements Externalizable, Rectangledc {
      * <p>
      * This is equivalent to <code>translate(-ax, -ay, dest).scale(sx, sy).translate(ax, ay)</code>
      *
-     * @param sx
-     *          the scaling factor on the x axis
-     * @param sy
-     *          the scaling factor on the y axis
-     * @param ax
-     *          the x coordinate of the anchor
-     * @param ay
-     *          the y coordinate of the anchor
-     * @param dest
-     *          will hold the result
+     * @param sx the scaling factor on the x axis
+     * @param sy the scaling factor on the y axis
+     * @param ax the x coordinate of the anchor
+     * @param ay the y coordinate of the anchor
+     * @param dest will hold the result
      * @return dest
      */
     @Override
@@ -768,14 +716,10 @@ public class Rectangled implements Externalizable, Rectangledc {
      * <p>
      * This is equivalent to <code>translate(anchor.negate(), dest).scale(sx, sy).translate(anchor.negate())</code>
      *
-     * @param sx
-     *          the scaling factor on the x axis
-     * @param sy
-     *          the scaling factor on the y axis
-     * @param anchor
-     *          the location of the anchor
-     * @param dest
-     *          will hold the result
+     * @param sx the scaling factor on the x axis
+     * @param sy the scaling factor on the y axis
+     * @param anchor the location of the anchor
+     * @param dest will hold the result
      * @return dest
      */
     @Override
@@ -820,7 +764,8 @@ public class Rectangled implements Externalizable, Rectangledc {
     /**
      * Return a string representation of this rectangle.
      * <p>
-     * This method creates a new {@link DecimalFormat} on every invocation with the format string "<code>0.000E0;-</code>".
+     * This method creates a new {@link DecimalFormat} on every invocation with the format string
+     * "<code>0.000E0;-</code>".
      *
      * @return the string representation
      */
@@ -829,15 +774,15 @@ public class Rectangled implements Externalizable, Rectangledc {
     }
 
     /**
-     * Return a string representation of this rectangle by formatting the vector components with the given {@link NumberFormat}.
+     * Return a string representation of this rectangle by formatting the vector components with the given {@link
+     * NumberFormat}.
      *
-     * @param formatter
-     *          the {@link NumberFormat} used to format the vector components with
+     * @param formatter the {@link NumberFormat} used to format the vector components with
      * @return the string representation
      */
     public String toString(NumberFormat formatter) {
         return "(" + Runtime.format(minX, formatter) + " " + Runtime.format(minY, formatter) + ") < "
-             + "(" + Runtime.format(maxX, formatter) + " " + Runtime.format(maxY, formatter) + ")";
+                + "(" + Runtime.format(maxX, formatter) + " " + Runtime.format(maxY, formatter) + ")";
     }
 
     public void writeExternal(ObjectOutput out) throws IOException {

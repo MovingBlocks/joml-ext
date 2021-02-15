@@ -118,6 +118,10 @@ public class Rectanglef implements Externalizable, Rectanglefc {
         return this.minY;
     }
 
+    public Vector2f getMin(Vector2f dest) {
+        return dest.set(minX, minY);
+    }
+
     @Override
     public float maxX() {
         return this.maxX;
@@ -126,6 +130,10 @@ public class Rectanglef implements Externalizable, Rectanglefc {
     @Override
     public float maxY() {
         return this.maxY;
+    }
+
+    public Vector2f getMax(Vector2f dest) {
+        return dest.set(maxX, maxY);
     }
 
     public boolean containsRectangle(Rectangledc rectangle) {

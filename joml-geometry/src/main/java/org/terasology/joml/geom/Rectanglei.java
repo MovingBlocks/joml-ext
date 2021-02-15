@@ -120,6 +120,10 @@ public class Rectanglei implements Externalizable, Rectangleic {
         return this.minY;
     }
 
+    public Vector2i getMin(Vector2i dest) {
+        return dest.set(minX, minY);
+    }
+
     @Override
     public int maxX() {
         return this.maxX;
@@ -128,6 +132,10 @@ public class Rectanglei implements Externalizable, Rectangleic {
     @Override
     public int maxY() {
         return this.maxY;
+    }
+
+    public Vector2i getMax(Vector2i dest) {
+        return dest.set(maxX, maxY);
     }
 
     /**
