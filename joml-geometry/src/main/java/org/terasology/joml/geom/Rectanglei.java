@@ -640,8 +640,8 @@ public class Rectanglei implements Externalizable, Rectangleic {
         //     dx = p - center - width / 2
         // 2 * dx = 2 * px - 2 * center - width
         //     dx = (2 * px - 2 * center - width) / 2
-        long dx = java.lang.Math.max(java.lang.Math.abs(2 * px - cx2) - getSizeX(), 0) / 2;
-        long dy = java.lang.Math.max(java.lang.Math.abs(2 * py - cy2) - getSizeY(), 0) / 2;
+        long dx = Math.max(Math.abs(2 * px - cx2) - getSizeX(), 0) / 2;
+        long dy = Math.max(Math.abs(2 * py - cy2) - getSizeY(), 0) / 2;
         return dx * dx + dy * dy;
     }
 
