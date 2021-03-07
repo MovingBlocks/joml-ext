@@ -305,16 +305,6 @@ public class Rectanglei implements Externalizable, Rectangleic {
         return minX < maxX && minY < maxY;
     }
 
-    private Rectanglei validate() {
-        if (!isValid()) {
-            minX = Integer.MAX_VALUE;
-            minY = Integer.MAX_VALUE;
-            maxX = Integer.MIN_VALUE;
-            maxY = Integer.MIN_VALUE;
-        }
-        return this;
-    }
-
     /**
      * Set <code>this</code> to the union of <code>this</code> and the given point <code>p</code>.
      *
@@ -540,19 +530,19 @@ public class Rectanglei implements Externalizable, Rectangleic {
     @Override
     public boolean containsRectangle(Rectangledc rectangle) {
         return rectangle.minX() >= minX && rectangle.maxX() <= maxX &&
-                rectangle.minY() >= minY && rectangle.maxY() <= maxY;
+                rectangle.minY() >= minY && rectangle.maxY() <= maxY && isValid() && rectangle.isValid();
     }
 
     @Override
     public boolean containsRectangle(Rectanglefc rectangle) {
         return rectangle.minX() >= minX && rectangle.maxX() <= maxX &&
-                rectangle.minY() >= minY && rectangle.maxY() <= maxY;
+                rectangle.minY() >= minY && rectangle.maxY() <= maxY && isValid() && rectangle.isValid();
     }
 
     @Override
     public boolean containsRectangle(Rectangleic rectangle) {
         return rectangle.minX() >= minX && rectangle.maxX() <= maxX &&
-                rectangle.minY() >= minY && rectangle.maxY() <= maxY;
+                rectangle.minY() >= minY && rectangle.maxY() <= maxY && isValid() && rectangle.isValid();
     }
 
     @Override
@@ -562,7 +552,7 @@ public class Rectanglei implements Externalizable, Rectangleic {
 
     @Override
     public boolean containsPoint(float x, float y) {
-        return x >= this.minX && y >= this.minY && x <= this.maxX && y <= this.maxY;
+        return x >= this.minX && y >= this.minY && x <= this.maxX && y <= this.maxY && isValid();
     }
 
     @Override
@@ -572,7 +562,7 @@ public class Rectanglei implements Externalizable, Rectangleic {
 
     @Override
     public boolean containsPoint(int x, int y) {
-        return x >= minX && y >= minY && x <= maxX && y <= maxY;
+        return x >= minX && y >= minY && x <= maxX && y <= maxY && isValid();
     }
 
     @Override
@@ -582,25 +572,25 @@ public class Rectanglei implements Externalizable, Rectangleic {
 
     @Override
     public boolean containsPoint(double x, double y) {
-        return x >= this.minX && y >= this.minY && x <= this.maxX && y <= this.maxY;
+        return x >= this.minX && y >= this.minY && x <= this.maxX && y <= this.maxY && isValid();
     }
 
     @Override
     public boolean intersectsRectangle(Rectangledc other) {
         return minX <= other.maxX() && maxX >= other.minX() &&
-                maxY >= other.minY() && minY <= other.maxY();
+                maxY >= other.minY() && minY <= other.maxY() && other.isValid() && isValid();
     }
 
     @Override
     public boolean intersectsRectangle(Rectanglefc other) {
         return minX <= other.maxX() && maxX >= other.minX() &&
-                maxY >= other.minY() && minY <= other.maxY();
+                maxY >= other.minY() && minY <= other.maxY() && other.isValid() && isValid();
     }
 
     @Override
     public boolean intersectsRectangle(Rectangleic other) {
         return minX <= other.maxX() && maxX >= other.minX() &&
-                maxY >= other.minY() && minY <= other.maxY();
+                maxY >= other.minY() && minY <= other.maxY() && other.isValid() && isValid();
     }
 
     @Override
@@ -609,7 +599,7 @@ public class Rectanglei implements Externalizable, Rectangleic {
         dest.minY = Math.max(minY, other.minY());
         dest.maxX = Math.min(maxX, other.maxX());
         dest.maxY = Math.min(maxY, other.maxY());
-        return dest.validate();
+        return dest;
     }
 
     /**
