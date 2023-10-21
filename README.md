@@ -69,8 +69,8 @@ non-snapshot release for any version is as follows:
 
 <!-- References -->
 [joml]: https://github.com/JOML-CI/JOML
-[jenkins]: http://jenkins.terasology.io/teraorg/job/Libraries/job/joml-ext/
+[jenkins]: https://jenkins.terasology.io/job/Libraries/job/joml-ext/
 [git-tag]: https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag
-[artifactory]: http://artifactory.terasology.org/
-[artifactory-joml-ext-snapshot]: http://artifactory.terasology.org/artifactory/webapp/#/artifacts/browse/simple/General/libs-snapshot-local/org/terasology/joml-ext
-[artifactory-joml-ext-release]: http://artifactory.terasology.org/artifactory/webapp/#/artifacts/browse/simple/General/libs-release-local/org/terasology/joml-ext
+[artifactory]: https://artifactory.terasology.io/
+[artifactory-joml-ext-snapshot]: https://artifactory.terasology.io/ui/repos/tree/General/libs-snapshot-local/org/terasology/joml-ext
+[artifactory-joml-ext-release]: https://artifactory.terasology.io/ui/repos/tree/General/libs-release-local/org/terasology/joml-ext
